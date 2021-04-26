@@ -1,0 +1,41 @@
+    //check for invert matrix
+    //Must be:
+    //1 -1 1 -38 41 -34 27 -29 24
+    double* h_temp_cov_check = new double[9], *d_temp, *d_det_temp, *d_temp_out;
+    h_temp_cov_check[0] = 2; h_temp_cov_check[1] = 5; h_temp_cov_check[2] = 7;
+    h_temp_cov_check[3] = 6; h_temp_cov_check[4] = 3; h_temp_cov_check[5] = 4;
+    h_temp_cov_check[6] = 5; h_temp_cov_check[7] = -2;h_temp_cov_check[8] = -3;
+    cudaMalloc(&d_temp, sizeof(double) * 9);
+    cudaMalloc(&d_det_temp, sizeof(double) * 1);
+    cudaMalloc(&d_temp_out, sizeof(double) * 9);
+    cudaMemcpy(d_temp, h_temp_cov_check, sizeof(double) * 9, cudaMemcpyHostToDevice);
+    h_temp_cov_check[0] = -1;
+    cudaMemcpy(d_det_temp, h_temp_cov_check, sizeof(double), cudaMemcpyHostToDevice);
+    invert_covariation(d_temp, d_det_temp, d_temp_out, 1);
+    cudaMemcpy(h_temp_cov_check, d_temp_out, sizeof(double) * 9, cudaMemcpyDeviceToHost);
+    for (int i = 0; i < 9; i++) {
+        std::cout<<h_temp_cov_check[i]<<" ";
+    }
+
+    
+    /*
+#pragma region Temp
+    double* h_temp_cov_check = new double[9], *d_temp, *d_det_temp, *d_temp_out;
+    h_temp_cov_check[0] = 2; h_temp_cov_check[1] = 5; h_temp_cov_check[2] = 7;
+    h_temp_cov_check[3] = 6; h_temp_cov_check[4] = 3; h_temp_cov_check[5] = 4;
+    h_temp_cov_check[6] = 5; h_temp_cov_check[7] = -2;h_temp_cov_check[8] = -3;
+    cudaMalloc(&d_temp, sizeof(double) * 9);
+    cudaMalloc(&d_det_temp, sizeof(double) * 1);
+    cudaMalloc(&d_temp_out, sizeof(double) * 9);
+    cudaMemcpy(d_temp, h_temp_cov_check, sizeof(double) * 9, cudaMemcpyHostToDevice);
+    //h_temp_cov_check[0] = -1;
+    //cudaMemcpy(d_det_temp, h_temp_cov_check, sizeof(double), cudaMemcpyHostToDevice);
+    //invert_covariation(d_temp, d_det_temp, d_temp_out, 1);
+    determinant(d_temp, d_det_temp, 1);
+    cudaMemcpy(h_temp_cov_check, d_det_temp, sizeof(double) * 1, cudaMemcpyDeviceToHost);
+    for (int i = 0; i < 1; i++) {
+        std::cout<<h_temp_cov_check[i]<<" ";
+    }
+#pragma endregion
+    return 0;
+    */
