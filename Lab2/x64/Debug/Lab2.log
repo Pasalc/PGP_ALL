@@ -1,0 +1,17 @@
+﻿  Compiling CUDA source file kernel.cu...
+  
+  D:\Univ\Kurs4\PGP\Lab2>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\bin\HostX86\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc142.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\kernel.cu.obj "D:\Univ\Kurs4\PGP\Lab2\kernel.cu" 
+  kernel.cu
+D:/Univ/Kurs4/PGP/Lab2/kernel.cu(226): warning C4996: 'cudaMemcpyToArray': объявлен deprecate
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include\cuda_runtime_api.h(7108): note:  см. объявление "cudaMemcpyToArray"
+D:/Univ/Kurs4/PGP/Lab2/kernel.cu(235): warning C4996: 'cudaBindTextureToArray': объявлен deprecate
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include\cuda_runtime.h(1498): note:  см. объявление "cudaBindTextureToArray"
+D:/Univ/Kurs4/PGP/Lab2/kernel.cu(253): warning C4996: 'cudaUnbindTexture': объявлен deprecate
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include\cuda_runtime.h(1661): note:  см. объявление "cudaUnbindTexture"
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include\cuda_runtime.h(1504): warning C4996: 'cudaBindTextureToArray': объявлен deprecate
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include\cuda_runtime_api.h(7994): note:  см. объявление "cudaBindTextureToArray"
+  D:/Univ/Kurs4/PGP/Lab2/kernel.cu(235): note: выполняется компиляция ссылки на экземпляр шаблон функции "cudaError_t cudaBindTextureToArray<uchar4,2,cudaReadModeElementType>(const texture<uchar4,2,cudaReadModeElementType> &,cudaArray_const_t,const cudaChannelFormatDesc &)"
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include\cuda_runtime.h(1665): warning C4996: 'cudaUnbindTexture': объявлен deprecate
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include\cuda_runtime_api.h(8060): note:  см. объявление "cudaUnbindTexture"
+  D:/Univ/Kurs4/PGP/Lab2/kernel.cu(253): note: выполняется компиляция ссылки на экземпляр шаблон функции "cudaError_t cudaUnbindTexture<uchar4,2,cudaReadModeElementType>(const texture<uchar4,2,cudaReadModeElementType> &)"
+  Lab2.vcxproj -> D:\Univ\Kurs4\PGP\Lab2\x64\Debug\Lab2.exe
